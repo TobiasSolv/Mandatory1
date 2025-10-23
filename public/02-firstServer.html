@@ -18,7 +18,7 @@
 <h2>Understand advanced things about functions in JavaScript.</h2>
 <p>functions are first-class citizens meaning they can be, stored in variables, passed as arguments and returned from other functions</p>
 <h2>Can write callback functions with different syntax.</h2>
-<pre>
+<pre><code class="language-javascript">
 Regular function
 setTimeout(function() {
   console.log("Hello");
@@ -32,7 +32,7 @@ function greet() {
   console.log("Hello");
 }
 setTimeout(greet, 1000);
-</pre>
+</code></pre>
 <h2>Understands the function of NPM and can compare it with other package managers.</h2>
 <p>NPM (Node Package Manager) handles: Installing third-party packages, Managing project dependencies and Running scripts</p>
 <p>Other paxkage managers: Yarn: Faster installs, better caching and pnpm;Uses hard links to save disk space</p>
@@ -79,12 +79,12 @@ app.listen(PORT, (error) => {
 </code></pre>
 <h2>Understands how to send data with GET requests over HTTP and knows how to do it in Express.</h2>
 <p>GET requests send data via the URL query string(/user?name=Tobias&age=25).</p>
-<pre>
+<pre><code class="language-javascript">
 app.get('/user', (req, res) => {
   const { name, age } = req.query;
   res.send(`Name: ${name}, Age: ${age}`);
 });
-</pre>
+</code></pre>
 <h2>Understands node_modules.</h2>
 brug for hjælp
 </body>
