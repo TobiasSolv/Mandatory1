@@ -1,0 +1,23 @@
+{
+  "name": "mandatory1",
+  "version": "1.0.0",
+  "description": "Documentation website",
+  "homepage": "https://github.com/TobiasSolv/Mandatory1#readme",
+  "bugs": {
+    "url": "https://github.com/TobiasSolv/Mandatory1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobiasSolv/Mandatory1.git"
+  },
+  "license": "ISC",
+  "author": "Tobias",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "scripts": {
+    "serve": "node index.js"
+  }
+}

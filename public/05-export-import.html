@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Can work with both types of import/export in HTML.</h2>
+<pre>
+import { foo } from "/modules/my-module.js";
+
+export function foo() {
+  console.log('Hello from a module!');
+}
+</pre>
+<h2>Can import/export in both ways in Node.js (CommonJS and ES Modules). Knows the pros of using ES Modules.</h2>
+<p>CommonJS: default in older Node.js projects, uses require() and module.exports.</p>
+brug for hjælp
+<p>ES Modules: uses "type": "module" in package.json or .mjs and uses import and export</p>
+<pre>
+export const add = (a, b) => a + b;
+
+
+import { add } from './mathAdd.js';
+console.log(add(2, 3));
+</pre>
+<p>Pros of ES Modules: Standardized across browsers and Node, Enables tree-shaking in bundlers (better optimization), Better static analysis and tooling support and Encourages clear dependency management and top-level await.</p>
+<h2>Understands the security need for serving static files and can do it in Express.</h2>
+brug for hjælp
+<h2>Can recount the number of ways and approaches to redirection.</h2>
+
+<h2>Understands the difference between client-side redirection and server-side.</h2>
+<p>Performs redirect: client-side -> Browser, server-side -> Server</p>
+<p>When redirect happens: client-side -> after page load/ JS runs, server-side -> before response is sent</p>
+
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="highlight.css">
+    <script src="highlight.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body>
+
+<h2>Understand scoping in Javascript and know to always use const if you can get away with it otherwise let.</h2>
+<p>Globel scope: variables outside of functions, can be accesed everywhere</p>
+<p>function scope: variables inside a function, can be accesed only within that function</p>
+<p>Use const by default and use let when you need to reassing a value. Don't use var.</p>
+<h2>Understand advanced things about functions in JavaScript.</h2>
+<p>functions are first-class citizens meaning they can be, stored in variables, passed as arguments and returned from other functions</p>
+<h2>Can write callback functions with different syntax.</h2>
+<pre>
+Regular function
+setTimeout(function() {
+  console.log("Hello");
+}, 1000);
+
+Arrow function
+setTimeout(() => console.log("Hello"), 1000);
+
+Callback function
+function greet() {
+  console.log("Hello");
+}
+setTimeout(greet, 1000);
+</pre>
+<h2>Understands the function of NPM and can compare it with other package managers.</h2>
+<p>NPM (Node Package Manager) handles: Installing third-party packages, Managing project dependencies and Running scripts</p>
+<p>Other paxkage managers: Yarn: Faster installs, better caching and pnpm;Uses hard links to save disk space</p>
+<h2>Understands the different purposes of package.json and can set it up by hand.</h2>
+<p>Package.json defines project metadata, dependencies, and scripts.</p>
+<pre><code class="language-json">
+{
+  "name": "mandatory1",
+  "version": "1.0.0",
+  "description": "Documentation website",
+  "homepage": "https://github.com/TobiasSolv/Mandatory1#readme",
+  "bugs": {
+    "url": "https://github.com/TobiasSolv/Mandatory1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobiasSolv/Mandatory1.git"
+  },
+  "license": "ISC",
+  "author": "Tobias",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "scripts": {
+    "serve": "node index.js"
+  }
+}
+</code></pre>
+<h2>Can create a server with Express from memory.</h2>
+<pre><code class="language-javascript">
+const express = require('express');
+const app = express();
+
+const PORT = 8080;
+app.listen(PORT, (error) => {
+    if (error) {
+        console.log("Error starting the server", error);
+        return;
+    }
+    console.log("Server is running on port", PORT);
+});
+</code></pre>
+<h2>Understands how to send data with GET requests over HTTP and knows how to do it in Express.</h2>
+<p>GET requests send data via the URL query string(/user?name=Tobias&age=25).</p>
+<pre>
+app.get('/user', (req, res) => {
+  const { name, age } = req.query;
+  res.send(`Name: ${name}, Age: ${age}`);
+});
+</pre>
+<h2>Understands node_modules.</h2>
+brug for hjælp
+</body>
+</html>
