@@ -9,26 +9,59 @@
 </head>
 
 <body>
-    right version of node installed, used nvm = node version maneger
-    nvm install 24
-    nvm use 24
-    used .nvmrc
-    used npx sv create, chose eslint and prettier, chose es modules
-    did not work if you do not have the right version of node or used a version before v24
-    follow the svelte tutorial, i added a (TOC) table of contets
-
-
-
+    <!-- Notes:
+- Installed the right Node.js version using NVM (Node Version Manager).
+  nvm install 24
+  nvm use 24
+- Used a .nvmrc file to lock the project Node version.
+- Used "npx sv create", selected ESLint and Prettier, and chose ES Modules.
+- The setup does not work with Node versions older than v24.
+- Followed the official Svelte tutorial and added a Table of Contents (TOC).
+-->
     <h2>Understands how code and its placement affects application memory and efficiency.</h2>
+    <p>Code structure and placement can greatly impact how efficiently an application uses memory and CPU resources.</p>
+    <ul>
+        <li>Functions and variables should be declared only when needed to reduce memory usage.</li>
+        <li>Use local scope to limit memory allocation and prevent global memory leaks.</li>
+        <li>Avoid unnecessary imports or large libraries that increase bundle size.</li>
+        <li>Use lazy loading or dynamic imports to load code only when it’s needed.</li>
+        <li>Optimize loops and data structures to reduce unnecessary processing.</li>
+    </ul>
+    <p>Efficient code placement leads to faster load times and lower memory consumption, especially in large or
+        long-running applications.</p>
+
     <h2>Understands the arguments for and against SSR vs. CSR when it comes to:</h2>
     <ol>
-        <li>Load time.</li>
-        <li>Ressources spent (duration, when and where).</li>
-        <li>SEO.</li>
-        <li>Dealing with CORS (SSR has no CORS issues).</li>
+        <li><strong>Load time:</strong>
+            SSR (Server-Side Rendering) sends pre-rendered HTML to the client, so content appears faster.
+            CSR (Client-Side Rendering) loads a blank page first and renders content with JavaScript, so the first load
+            is slower but navigation is faster after initial load.
+        </li>
+        <li><strong>Resources spent (duration, when and where):</strong>
+            SSR uses server resources to render each page request.
+            CSR uses the client’s (browser’s) resources, reducing server load but increasing client work.
+        </li>
+        <li><strong>SEO:</strong>
+            SSR is better for SEO because search engines can immediately read the rendered HTML.
+            CSR can have SEO issues unless pre-rendering or hydration is used.
+        </li>
+        <li><strong>Dealing with CORS:</strong>
+            SSR avoids CORS issues since all API requests can be made directly from the server.
+            CSR must follow CORS rules when fetching from external APIs.
+        </li>
     </ol>
-    <h2>Can argue for better ways to structure the code and how to avoid files that are too long.</h2>
 
+    <h2>Can argue for better ways to structure the code and how to avoid files that are too long.</h2>
+    <p>Well-structured code improves readability, maintainability, and scalability.</p>
+    <ul>
+        <li>Split long files into smaller modules or components.</li>
+        <li>Follow clear folder structures (<code>/routes</code>, <code>/controllers</code>, <code>/utils</code>).
+        </li>
+        <li>Group related logic together and separate concerns (business logic vs. UI logic).</li>
+        <li>Use helper functions or utility modules for repetitive logic.</li>
+        <li>Keep functions small and focused — each should do one thing well.</li>
+        <li>Adopt consistent naming conventions and code formatting (use ESLint and Prettier).</li>
+    </ul>
 </body>
 
 </html>

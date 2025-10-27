@@ -1,28 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<h2>Can define and run scripts with NPM.</h2>
-<pre>
-npm run 
-npm start
-</pre>
-<h2>Know how to define environment variables natively in Node.js (natively = not using any libraries).</h2>
-<h2>Fetching in the client vs. fetching in the backend.</h2>
-<h2>Structuring HTML with semantic HTML.</h2>
-<h2>Can point out which files are client files and which are server files.</h2>
-<p>Client files: .html, .css and .js, run in the brower</p>
-<p>Server files: .js that run in Node.js, API routers, Express servers, database logic</p>
-<h2>Knows at least one way to style a footer so that it appears at the bottom, always.</h2>
-ved ikke hvad er 
-<h2>Can argue for a better way to structure the frontend (assets, pages).</h2>
-ved ikke
-    
+<body>
+    <h2>Can define and run scripts with NPM.</h2>
+    <p>NPM scripts are custom commands defined in the <code>package.json</code> file to automate tasks such as starting
+        a server, building, or testing code.</p>
+    <pre><code class="language-json">
+    start: node index.js
+    dev: nodemon index.js
+    build: echo Building project...
+</code></pre>
+    <p>To run scripts:</p>
+    <pre><code class="language-bash">
+npm run dev
+npm run start   
+</code></pre>
+
+    <h2>Knows how to define environment variables natively in Node.js (without any libraries).</h2>
+    <p>Environment variables are used to store sensitive or configurable data outside the code (port numbers, API keys).
+    </p>
+    <ul>
+        <li>Define them in your terminal before running your app:</li>
+    </ul>
+    <pre><code class="language-bash">
+# macOS / Linux
+PORT=8080 node app.js
+
+# Windows (PowerShell)
+$env:PORT=8080; node app.js
+</code></pre>
+    <ul>
+        <li>Access them in Node.js using <code>process.env</code>:</li>
+    </ul>
+    <pre><code class="language-javascript">
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, (error) => {
+    if (error) {
+        console.log("Error starting the server", error);
+        return;
+    }
+    console.log("Server is running on port", PORT);
+});
+</code></pre>
+
+    <h2>Fetching in the client vs. fetching in the backend.</h2>
+    <p><strong>Client-side fetching</strong> happens in the browser, usually with <code>fetch()</code> in frontend
+        JavaScript.</p>
+    <ul>
+        <li>Runs after the page loads.</li>
+        <li>Used to display or update data dynamically.</li>
+        <li>Can be seen in the browser’s network tab (less secure).</li>
+    </ul>
+    <pre><code class="language-javascript">
+// Client-side fetch
+fetch("/api/users")
+  .then(res => res.json())
+  .then(data => console.log(data));
+</code></pre>
+    <p><strong>Backend fetching</strong> happens in a Node.js server, usually with <code>fetch</code> or
+        <code>axios</code>.
+    </p>
+    <ul>
+        <li>Runs on the server before sending a response to the client.</li>
+        <li>Useful for communicating with external APIs securely.</li>
+    </ul>
+    <pre><code class="language-javascript">
+// Backend fetch (Node.js)
+const response = await fetch("https://api.example.com/data");
+const data = await response.json();
+console.log(data);
+</code></pre>
+
+    <h2>Structuring HTML with semantic HTML.</h2>
+    <p>Semantic HTML uses elements to describe the content structure, improving accessibility and SEO.
+    </p>
+    <ul>
+        <li><code>&lt;header&gt;</code>: top section of the page (e.g. logo, navigation)</li>
+        <li><code>&lt;nav&gt;</code>: main navigation links</li>
+        <li><code>&lt;main&gt;</code>: main page content</li>
+        <li><code>&lt;section&gt;</code>: grouped related content</li>
+        <li><code>&lt;article&gt;</code>: independent piece of content</li>
+        <li><code>&lt;aside&gt;</code>: side content like ads or related links</li>
+        <li><code>&lt;footer&gt;</code>: bottom section (e.g. copyright, contact info)</li>
+    </ul>
+    <h2>Can point out which files are client files and which are server files.</h2>
+    <p><strong>Client files</strong>:</p>
+    <ul>
+        <li><code>.html</code>, <code>.css</code>, <code>.js</code></li>
+        <li>Run in the browser and handle user interaction, layout, and visuals.</li>
+    </ul>
+    <p><strong>Server files</strong>:</p>
+    <ul>
+        <li><code>.js</code> files that run in Node.js.</li>
+        <li>Handle API routes, logic, database queries, and server responses.</li>
+    </ul>
+
+    <h2>Knows at least one way to style a footer so that it appears at the bottom, always.</h2>
+    <p>Can use CSS Flexbox to make the footer stick to the bottom of the page.</p>
+    <pre><code class="language-css">
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+</code></pre>
+
+    <h2>Can argue for a better way to structure the frontend (assets, pages).</h2>
+    <p>A well-structured frontend keeps files organized and easy to maintain.</p>
+    <p>A recommended structure is:</p>
+    <pre><code class="language-none">
+/public
+  /assets
+    /images
+    /css
+    /js
+  /pages
+    index.html
+    about.html
+</code></pre>
+    <ul>
+        <li><strong>assets/</strong>: reusable static files like images, CSS, and JS.</li>
+        <li><strong>pages/</strong>: separate HTML pages or views for different parts of the site.</li>
+        <li>Helps keep content, styling, and logic separated and easier to manage.</li>
+    </ul>
+
+
 </body>
+
 </html>

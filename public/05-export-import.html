@@ -1,41 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-<h2>Can work with both types of import/export in HTML.</h2>
-<pre>
-import { foo } from "/modules/my-module.js";
-
+  <h2>Can work with both types of import/export in HTML.</h2>
+  <pre><code class="language-html">
+&lt;script type="module"&gt;
+  import { foo } from "/modules/my-module.js";
+  foo();
+&lt;/script&gt;
+</code></pre>
+  <pre><code class="language-javascript">
+// /modules/my-module.js
 export function foo() {
-  console.log('Hello from a module!');
+  console.log("Hello from a module!");
 }
-</pre>
-<h2>Can import/export in both ways in Node.js (CommonJS and ES Modules). Knows the pros of using ES Modules.</h2>
-<p>CommonJS: default in older Node.js projects, uses require() and module.exports.</p>
-brug for hjælp
-<p>ES Modules: uses "type": "module" in package.json or .mjs and uses import and export</p>
-<pre>
+</code></pre>
+  <h2>Can import/export in both ways in Node.js (CommonJS and ES Modules). Knows the pros of using ES Modules.</h2>
+  <p><strong>CommonJS</strong>: default in older Node.js projects, uses require() and module.exports.</p>
+  <pre><code class="language-javascript">
+// mathAdd.js
+module.exports = (a, b) => a + b;
+
+// app.js
+const add = require("./mathAdd.js");
+console.log(add(2, 3));
+</code></pre>
+  <p><strong>ES Modules</strong>: uses <code>"type": "module"</code> in <code>package.json</code> or <code>.mjs</code>
+    file extension.</p>
+  <pre><code class="language-javascript">
+// mathAdd.js
 export const add = (a, b) => a + b;
 
-
-import { add } from './mathAdd.js';
+// app.js
+import { add } from "./mathAdd.js";
 console.log(add(2, 3));
-</pre>
-<p>Pros of ES Modules: Standardized across browsers and Node, Enables tree-shaking in bundlers (better optimization), Better static analysis and tooling support and Encourages clear dependency management and top-level await.</p>
-<h2>Understands the security need for serving static files and can do it in Express.</h2>
-brug for hjælp
-<h2>Can recount the number of ways and approaches to redirection.</h2>
+</code></pre>
 
-<h2>Understands the difference between client-side redirection and server-side.</h2>
-<p>Performs redirect: client-side -> Browser, server-side -> Server</p>
-<p>When redirect happens: client-side -> after page load/ JS runs, server-side -> before response is sent</p>
+  <p><strong>Pros of ES Modules:</strong></p>
+  <ul>
+    <li>Standardized across browsers and Node.js.</li>
+    <li>Supports tree-shaking for smaller bundle sizes.</li>
+    <li>Encourages clearer dependency management.</li>
+    <li>Allows top-level await.</li>
+  </ul>
 
-    
+  <h2>Understands the security need for serving static files and can do it in Express.</h2>
+  <p>Static files (HTML, CSS, JS, images) are served to users directly.</p>
+  <ul>
+    <li>Only expose public assets (files inside a <code>public</code> folder).</li>
+    <li>Never serve private server code or configuration files.</li>
+  </ul>
+  <p>In Express, you can serve static files safely using<code>express.static()</code>.</p>
+  <pre><code class="language-javascript">
+import express from "express";
+const app = express();
+
+app.use(express.static("public"));
+
+const PORT = 8080;
+app.listen(PORT, (error) => {
+    if (error) {
+        console.log("Error starting the server", error);
+        return;
+    }
+    console.log("Server is running on port", PORT);
+});
+</code></pre>
+
+  <h2>Can recount the number of ways and approaches to redirection.</h2>
+  <p>Redirection sends the user from one URL to another. It can happen on both the client side and the server side.</p>
+  <ul>
+    <li><strong>Client-side redirection:</strong> using JavaScript or HTML.</li>
+    <ul>
+      <li><code>window.location.href = "/new-page"</code></li>
+      <li><code>&lt;meta http-equiv="refresh" content="0; url=/new-page"&gt;</code></li>
+    </ul>
+    <li><strong>Server-side redirection:</strong> done by the server before sending the response.</li>
+    <ul>
+      <li><code>res.redirect("/new-page")</code> in Express</li>
+      <li>Used for route changes, authentication, or after form submissions.</li>
+    </ul>
+  </ul>
+
+  <h2>Understands the difference between client-side redirection and server-side.</h2>
+  <ul>
+    <li><strong>Client-side redirection:</strong> handled in the browser, usually after the page has loaded or via
+      JavaScript.</li>
+    <li><strong>Server-side redirection:</strong> handled on the server before sending the response to the client.</li>
+  </ul>
+  <p><strong>When it happens:</strong></p>
+  <ul>
+    <li>Client-side → after page load or when JS runs.</li>
+    <li>Server-side → before the response is sent.</li>
+  </ul>
 </body>
+
 </html>

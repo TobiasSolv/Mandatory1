@@ -15,3 +15,7 @@
 {/each}
 
 {@render children?.()}
+
+<style>
+	@import './style.css';
+</style>

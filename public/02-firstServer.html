@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="highlight.css">
-    <script src="highlight.js"></script>
-    <script>hljs.highlightAll();</script>
-</head>
-<body>
 
-<h2>Understand scoping in Javascript and know to always use const if you can get away with it otherwise let.</h2>
-<p>Globel scope: variables outside of functions, can be accesed everywhere</p>
-<p>function scope: variables inside a function, can be accesed only within that function</p>
-<p>Use const by default and use let when you need to reassing a value. Don't use var.</p>
-<h2>Understand advanced things about functions in JavaScript.</h2>
-<p>functions are first-class citizens meaning they can be, stored in variables, passed as arguments and returned from other functions</p>
-<h2>Can write callback functions with different syntax.</h2>
-<pre><code class="language-javascript">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="highlight.css">
+  <script src="highlight.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <h2>Understands scoping in JavaScript and knows to always use const if possible, otherwise let.</h2>
+  <p>Scope defines where variables can be accessed in your code.</p>
+  <ul>
+    <li><strong>Global scope:</strong> Variables declared outside any function or block. Accessible from anywhere in the
+      code.</li>
+    <li><strong>Function scope:</strong> Variables declared inside a function. Accessible only within that function.
+    </li>
+    <li><strong>Block scope:</strong> Variables declared with <code>let</code> or <code>const</code> inside a block
+      <code>{ }</code>. Accessible only inside that block.
+    </li>
+  </ul>
+  <p>Use <code>const</code> by default to declare variables that should not be reassigned.</p>
+  <p>Use <code>let</code> when you need to reassign a value later.</p>
+  <p>Don't use <code>var</code> because it ignores block scope and can cause unexpected behavior.</p>
+
+  <h2>Understands advanced concepts about functions in JavaScript.</h2>
+  <p>Functions in JavaScript are <strong>first-class citizens</strong>, meaning they can be:</p>
+  <ul>
+    <li>Stored in variables</li>
+    <li>Passed as arguments to other functions</li>
+    <li>Returned from other functions</li>
+  </ul>
+
+  <h2>Can write callback functions with different syntax.</h2>
+  <pre><code class="language-javascript">
 Regular function
 setTimeout(function() {
   console.log("Hello");
@@ -33,12 +51,33 @@ function greet() {
 }
 setTimeout(greet, 1000);
 </code></pre>
-<h2>Understands the function of NPM and can compare it with other package managers.</h2>
-<p>NPM (Node Package Manager) handles: Installing third-party packages, Managing project dependencies and Running scripts</p>
-<p>Other paxkage managers: Yarn: Faster installs, better caching and pnpm;Uses hard links to save disk space</p>
-<h2>Understands the different purposes of package.json and can set it up by hand.</h2>
-<p>Package.json defines project metadata, dependencies, and scripts.</p>
-<pre><code class="language-json">
+  <h2>Understands the function of NPM and can compare it with other package managers.</h2>
+  <p><strong>NPM (Node Package Manager)</strong> is a tool that helps manage JavaScript project dependencies.</p>
+  <ul>
+    <li><strong>Installs</strong> third-party packages from the NPM registry.</li>
+    <li><strong>Manages</strong> project dependencies and their versions.</li>
+    <li><strong>Runs scripts</strong> defined in the <code>package.json</code> file (e.g. <code>npm start</code>,
+      <code>npm test</code>).
+    </li>
+  </ul>
+
+  <p><strong>Other package managers:</strong></p>
+  <ul>
+    <li><strong>Yarn</strong>: Faster installs, improved caching, and better dependency locking.</li>
+    <li><strong>pnpm</strong>: Uses hard links to save disk space and ensures efficient dependency management.</li>
+  </ul>
+
+  <h2>Understands the different purposes of package.json and can set it up by hand.</h2>
+  <p>The <code>package.json</code> file is the heart of a Node.js project. It defines project information and
+    configuration.</p>
+  <ul>
+    <li><strong>Metadata:</strong> name, version, author, and license.</li>
+    <li><strong>Dependencies:</strong> lists the packages your project needs.</li>
+    <li><strong>Scripts:</strong> defines custom commands to run with <code>npm run</code>.</li>
+    <li><strong>Entry point:</strong> specifies the main file (e.g. <code>index.js</code>).</li>
+  </ul>
+  <p>You can create it manually or generate it using <code>npm init</code>.</p>
+  <pre><code class="language-json">
 {
   "name": "mandatory1",
   "version": "1.0.0",
@@ -63,8 +102,8 @@ setTimeout(greet, 1000);
   }
 }
 </code></pre>
-<h2>Can create a server with Express from memory.</h2>
-<pre><code class="language-javascript">
+  <h2>Can create a server with Express from memory.</h2>
+  <pre><code class="language-javascript">
 const express = require('express');
 const app = express();
 
@@ -77,15 +116,22 @@ app.listen(PORT, (error) => {
     console.log("Server is running on port", PORT);
 });
 </code></pre>
-<h2>Understands how to send data with GET requests over HTTP and knows how to do it in Express.</h2>
-<p>GET requests send data via the URL query string(/user?name=Tobias&age=25).</p>
-<pre><code class="language-javascript">
+  <h2>Understands how to send data with GET requests over HTTP and knows how to do it in Express.</h2>
+  <p>GET requests send data via the URL query string(/user?name=Tobias&age=25).</p>
+  <pre><code class="language-javascript">
 app.get('/user', (req, res) => {
   const { name, age } = req.query;
   res.send(`Name: ${name}, Age: ${age}`);
 });
 </code></pre>
-<h2>Understands node_modules.</h2>
-brug for hjælp
+  <h2>Understands node_modules.</h2>
+  <p><code>node_modules</code> is a folder where all installed dependencies are stored.</p>
+  <p>It is created automatically when you run <code>npm install</code>.</p>
+  <p>Each dependency can have its own dependencies, forming a dependency tree.</p>
+  <p>Never edit files inside <code>node_modules</code> directly.</p>
+  <p>Usually, this folder is ignored in <code>.gitignore</code> because it can be recreated from
+    <code>package.json</code>.
+  </p>
 </body>
+
 </html>

@@ -1,43 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<h2>Can work with Git in the terminal.</h2>
-<p>I don't use advanced git commands</p>
-<pre>
+<body>
+    <h2>Can work with Git in the terminal.</h2>
+    <p>I don't use advanced git commands</p>
+    <pre>
 git add 
 git add .
 git commit
 git push
 </pre>
-<h2>Understand and work with data types in JavaScript.</h2>
-<p>string, boolean, null, object, array, function, date</p>
-<h2>Can explain what Node.js is and how to run files with it.</h2>
-<p>is a runtime environment that let you javeScript outside the browser</p>
-<pre>
+    <h2>Understand and work with data types in JavaScript.</h2>
+    <p>JavaScript has several built-in data types used to store and work with different kinds of values.</p>
+    <ul>
+        <li><strong>string</strong>: text values, "Hello"</li>
+        <li><strong>number</strong>: numeric values, 42 or 3.14</li>
+        <li><strong>boolean</strong>: true or false</li>
+        <li><strong>null</strong>: empty value</li>
+        <li><strong>undefined</strong>: variable declared but not assigned a value</li>
+        <li><strong>object</strong>: collection of key/value pairs</li>
+        <li><strong>array</strong>: ordered list of values</li>
+        <li><strong>function</strong>: reusable block of code</li>
+        <li><strong>date</strong>: represents dates and times</li>
+    </ul>
+    <h2>Can explain what Node.js is and how to run files with it.</h2>
+    <p>Node.js is a runtime environment that allows you to run JavaScript code outside the browser.</p>
+    <p>Lets you build server-side and command-line applications.</p>
+    <pre>
 node app.js
 npm install
 </pre>
-<h2>Knows the existing data types in JavaScript and can work with them.</h2>
+    <h2>Understands type coercion and strategies to avoid it.</h2>
+    <p>Type coercion is when JavaScript automatically converts one data type to another, for example a number to a
+        string.</p>
+    <p>It can happen in operations like <code>'5' + 1</code> which becomes <code>'51'</code>, or <code>'5' - 1</code>
+        which becomes <code>4</code>.</p>
+    <p>To avoid unexpected results, use this equality <code>===</code> instead of <code>==</code>.</p>
+    <p>Make sure to convert types manually using <code>Number()</code>, <code>String()</code>, or
+        <code>Boolean()</code>.
+    </p>
+    <h2>Can design a REST API.</h2>
+    <p>A REST API uses HTTP methods to perform actions on resources such as users or products.</p>
+    <ul>
+        <li><strong>GET /users</strong>: list all users</li>
+        <li><strong>POST /users</strong>: create a new user</li>
+        <li><strong>GET /users/:id</strong>: get one specific user</li>
+        <li><strong>PUT /users/:id</strong>: update an existing user</li>
+        <li><strong>DELETE /users/:id</strong>: delete a user</li>
+    </ul>
 
-<h2>Understands type coercion and strategies to avoid it.</h2>
-<p>automatic conversion of one data type to another</p> brug for hjælp
-<h2>Can design a REST API.</h2>
-<p>get users(list users), post users(create user), get user.id(get one user), put user.id(update user), delete user.id(delete user)</p>
-<h2>Knows the three REST conventions we follow:</h2>
-<ol><li>Using the right HTTP verb,</li>
-<p>HTTP requset methods(Verbs): GET, POST, PUT, PATCH, DELETE</p>
-<li>Ordering,</li>
-<p>Ordering: consistent ordering(/collection/id/subcollection/id)</p>
-<li>Naming (noun, plural) that maps to collections in your system.</li>
-<p>Naming: usesing plural when nessesary (users, orders)</p></ol>
-<h2>While using a linter is not a requirement, having clean code is.</h2>
-    
+    <h2>Knows the three REST conventions we follow:</h2>
+    <ol>
+        <li>
+            <strong>Using the right HTTP verb</strong>
+            <p>HTTP request methods (verbs): <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>PATCH</code>,
+                <code>DELETE</code>
+            </p>
+        </li>
+        <li>
+            <strong>Ordering</strong>
+            <p>Keep a consistent URL structure, for example: <code>/collection/id/subcollection/id</code></p>
+        </li>
+        <li>
+            <strong>Naming</strong>
+            <p>Use nouns and plural names for collections, e.g. <code>/users</code>, <code>/orders</code></p>
+        </li>
+    </ol>
 </body>
+
 </html>
